@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload="changeLight()">
+    <div align="center">
+        <div id="red" style="background-color:red;width: 50px; height: 50px;
+        border-radius:50%"></div>
+        <div id="yellow" style="background-color:darkgray;width: 50px; height: 50px;
+        border-radius:50%"></div>
+        <div id="green" style="background-color:darkgray;width: 50px; height: 50px;
+        border-radius:50%"></div>
+    </div>
+    <div align="center">
+        <h1>倒计时：</h1>
+        <h1 id="t1">5</h1>
+    </div>
+
+</body>
+
+<script>
+    function changeLight(){
+        var red=document.getElementById('red')
+        var yellow=document.getElementById('yellow')
+        var green=document.getElementById('green')
+        if(red.style.backgroundColor=='red'){
+            red.style.backgroundColor='darkgray';
+            green.style.backgroundColor='green';
+            return
+        }
+        if(green.style.backgroundColor=='green'){
+            green.style.backgroundColor='darkgray'
+            yellow.style.backgroundColor='yellow'
+            return
+        }
+        if(yellow.style.backgroundColor=='yellow'){
+           yellow.style.backgroundColor='darkgray'
+            red.style.backgroundColor='red'
+            return
+        }
+    }
+
+    //计时器 ，每隔5秒自动执行一次changLight()
+        setInterval('changeLight()',5000)
+
+        //倒计时方法
+        var t1=document.getElementById('t1');
+        var p=5;
+        function change(){
+            p=p-1;
+            t1.innerHTML=p;
+            if(p==1){
+                p=6
+                return
+            }
+        }
+    setInterval('change()',1000)
+
+</script>
+</html>
